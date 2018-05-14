@@ -1,0 +1,22 @@
+{
+  "name": "test-merge",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Daniel Keller <dkeller@tocco.ch>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/merge.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "devDependencies": {
+    "test-util-test123": ">0.1.0"
+  }
+}

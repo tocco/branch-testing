@@ -3,5 +3,5 @@
 module.exports = merge;
 
 function merge() {
-    // Version 1.0.0 Code
+    // Version 1.0.2 Code
 }

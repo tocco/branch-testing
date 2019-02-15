@@ -42,5 +42,5 @@ yarn publish --new-version ${new_version}
 
 
 
-echo "${color_green} Published! Changelog was added to changelog.md and needs to be amend commited!${color_reset}"
+echo "${color_green} Published! Now you push!${color_reset}"
 echo "---------------------"

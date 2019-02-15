@@ -27,5 +27,8 @@ yarn publish --new-version ${new_version}
 
 changelog_file="./changelog.md"
 
+tee -a "${changelog_file}"
+tee -a "${changelog_file}"
+
 echo "${color_green} Published! Changelog was added to changelog.md and needs to be amend commited!${color_reset}"
 echo "---------------------"

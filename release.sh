@@ -19,16 +19,28 @@ echo -e  "Generated changelog:\n${color_blue}${changelog}${color_reset}"
 
 
 read -p "question New version: : " new_version
-echo "publishing ${package} with version ${new_version}"
 
 cd packages/${package}
+changelog_file="./changelog.md"
+
+echo "$new_version" | tee -a "${changelog_file}"
+echo "$changelog" | tee -a "${changelog_file}"
+
+read -p "Edit changelog " -n 1 -r
+
+
+git commit -m "docs(${package}): changelog ${new_version}" ${changelog_file}
+
+
+
+
+echo "publishing ${package} with version ${new_version}"
+
+
 yarn publish --new-version ${new_version}
 
 
-changelog_file="./changelog.md"
 
-tee -a "${changelog_file}"
-tee -a "${changelog_file}"
 
 echo "${color_green} Published! Changelog was added to changelog.md and needs to be amend commited!${color_reset}"
 echo "---------------------"

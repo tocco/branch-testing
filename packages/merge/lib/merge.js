@@ -10,4 +10,5 @@ function merge() {
   //Feat 4
   //Feat 5
   //Feat 6
+  //Feat 7
 }

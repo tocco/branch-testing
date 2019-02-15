@@ -10,3 +10,7 @@
 3.2.1
 -  Add Feat 5
 -  Add Feat 6
+3.2.2
+-  Add Feat 5
+-  Add Feat 6
+- asdasdasd

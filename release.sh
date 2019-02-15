@@ -12,7 +12,6 @@ last_version=$(echo ${last_release_tag} | awk -F '@' '{print $2}')
 
 changelog=$(git log --pretty='%b' ${last_release_tag}..HEAD --grep=''${package}'' --reverse | grep -E '^Changelog:' | awk '{gsub("Changelog:", "- ", $0); print}')
 
-
 echo "---------------------"
 echo "info latest release tag: ${color_blue}${last_release_tag} ${color_reset}"
 echo "info latest version: ${color_blue}${last_version}${color_reset}"
@@ -28,5 +27,5 @@ yarn publish --new-version ${new_version}
 
 changelog_file="./changelog.md"
 
-echo "${color_green} Pulished! Changelog was added to changelog.md and needs to be amend commited!${color_reset}"
+echo "${color_green} Published! Changelog was added to changelog.md and needs to be amend commited!${color_reset}"
 echo "---------------------"

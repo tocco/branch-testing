@@ -26,7 +26,7 @@ changelog_file="./changelog.md"
 echo "$new_version" | tee -a "${changelog_file}"
 echo "$changelog" | tee -a "${changelog_file}"
 
-read -p "Edit changelog " -n 1 -r
+read -p "Edit changelog and press ENTER" -n 1 -r
 
 
 git commit -m "docs(${package}): changelog ${new_version}" ${changelog_file}

@@ -1,4 +1,5 @@
 #!/bin/bash
+
 package=$1
 
 color_blue=`tput setaf 4`
@@ -10,7 +11,7 @@ last_release_tag=$(git describe --tags --match 'test-'${package}'-tocco@*' --abb
 
 last_version=$(echo ${last_release_tag} | awk -F '@' '{print $2}')
 
-changelog=$(git log --pretty='%b' ${last_release_tag}..HEAD --grep=''${package}'' --reverse | grep -E '^Changelog:' | awk '{gsub("Changelog:", "- ", $0); print}')
+changelog=$(git log --pretty='%b' "${last_release_tag}"..HEAD --grep="${package}" --reverse | grep -E '^Changelog:' | awk '{gsub("Changelog:", "- ", $0); print}')
 
 echo "---------------------"
 echo "info latest release tag: ${color_blue}${last_release_tag} ${color_reset}"
@@ -21,26 +22,15 @@ echo -e  "Generated changelog:\n${color_blue}${changelog}${color_reset}"
 read -p "question New version: : " new_version
 
 cd packages/${package}
+
 changelog_file="./changelog.md"
+tmp_file="./tmp_changelog.md"
 
-echo "$new_version" | tee -a "${changelog_file}"
-echo "$changelog" | tee -a "${changelog_file}"
-
-read -p "Edit changelog and press ENTER" -n 1 -r
-
+(echo  -e "${new_version}\n${changelog}\n" && cat "${changelog_file}") > "${tmp_file}" && mv "${tmp_file}" "${changelog_file}"
+read -p "Edit the changelog and press enter to continue"
 
 git commit -m "docs(${package}): changelog ${new_version}" ${changelog_file}
-
-
-
-
 echo "publishing ${package} with version ${new_version}"
-
-
 yarn publish --new-version ${new_version}
-
-
-
-
 echo "${color_green} Published! Now you push!${color_reset}"
 echo "---------------------"

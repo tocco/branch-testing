@@ -1,5 +1,3 @@
-0.3.1
--  Add Feat 7s
+0.3.2
+-  Add Feat 8
 
-0.1.0
-- asd

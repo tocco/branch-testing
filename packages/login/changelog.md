@@ -1,3 +1,10 @@
+3.3.0
+-  Add Feat 7 roli asdasd asd
+-  Add  some feature 8
+-  Add new feature xy
+-  Add new feature 2!
+-  Cool release!
+
 0.1.1
 
 - Test
